@@ -1114,8 +1114,12 @@ body .markdown-body
 <h3 id="git">Git 설치<a class="headerlink" href="#git" title="Permanent link"></a></h3>
 <ul>
 <li>다음의 링크에서 사용하는 OS에 맞는 Git을 설치합니다: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a><ul>
-<li>Windows 사용자는 설치시 다른 옵션은 모두 기본값으로 두고, <code>default editor</code>만 서브라임 텍스트를 선택하세요.
-<img alt="giteditor" src="./images/giteditor.PNG" /></li>
+<li>Windows 사용자는 설치시 <code>default editor</code>만 서브라임 텍스트로 변경하세요.
+    <img alt="giteditor" src="./images/giteditor.PNG" /></li>
+<li>macOS 사용자는 설치 후 Terminal을 실행해 다음의 코드를 입력합니다:
+<div class="codehilite"><pre>sudo ln -s /Applications/Sublime<span class="se">\ </span>Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+git config --global <span class="s2">&quot;subl -w&quot;</span>
+</pre></div></li>
 </ul>
 </li>
 </ul>
@@ -1245,7 +1249,7 @@ git config --global user.email <span class="s2">&quot;user@email.com&quot;</span
 </ol>
 </li>
 <li>이제 <code>replication</code> 폴더가 나의 <strong>로컬 저장소</strong>가 됩니다(내 계정 저장소 페이지는 <strong>원격 저장소</strong>입니다).</li>
-<li><code>cd replication</code>을 입력하여 해당 폴더로 이동하고, <code>git status</code>를 입력해봅시다.06 Jan 20204</li>
+<li><code>cd replication</code>을 입력하여 해당 폴더로 이동하고, <code>git status</code>를 입력해봅시다.</li>
 </ol>
 <div class="admonition hint">
 <p class="admonition-title">Tip</p>
@@ -1369,7 +1373,7 @@ git config --global user.email <span class="s2">&quot;user@email.com&quot;</span
 <ul>
 <li>왜 <code>2019FW</code> 브랜치에서 작업하지 않고, 별도의 브랜치를 생성해서 작업할까요?<ul>
 <li>Stata를 사용할 때 우리는 원자료를 직접 수정하기보다, 전처리 코드를 담은 do-file을 만들어 자료의 전처리 작업을 do-file에서 진행합니다. 원자료를 그대로 보존함으로써, 혹시라도 나중에 전처리 코드에서 오류를 발견했을 때 do-file만 수정해도 되게끔 대비하는 것인데요, <code>2019FW</code> 브랜치 대신 새로 생성한 브랜치에서 작업하는 것도 같은 원리입니다. <code>2019FW</code> 브랜치가 원자료, <code>develop</code> 브랜치가 do-file이라고 생각하세요.
-<img alt="branch" src="./images/branch.svg" /></li>
+    <img alt="branch" src="./images/branch.svg" /></li>
 <li><code>develop</code> 브랜치에 아무거나 파일을 하나 추가하고, 다음의 코드를 Terminus에 입력하면서 사이드바를 확인해보세요:
 <div class="codehilite"><pre>git checkout master
 git checkout 2019FW
@@ -1542,9 +1546,7 @@ subl .bashrc
 <h4 id="zsh-git">Zsh에서 Git 명령어 별칭 설정하기<a class="headerlink" href="#zsh-git" title="Permanent link"></a></h4>
 <ol>
 <li>다음의 코드를 OS에 맞게 수정하여 Terminus에 입력합니다.
-<div class="codehilite"><pre><span class="c1"># macOS</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/Applications/Sublime<span class="se">\ </span>Text.app/Contents/SharedSupport/bin:<span class="nv">$PATH</span>:
-<span class="c1"># WSL Ubuntu</span>
+<div class="codehilite"><pre><span class="c1"># WSL Ubuntu</span>
 <span class="c1"># alias subl=&#39;/mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe&#39;</span>
 <span class="nb">cd</span> ~
 subl .zshrc
@@ -1556,8 +1558,6 @@ subl .zshrc
 <span class="c1"># VAL SET</span>
 <span class="c1">##################</span>
 
-<span class="c1"># macOS</span>
-<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/Applications/Sublime<span class="se">\ </span>Text.app/Contents/SharedSupport/bin:<span class="nv">$PATH</span>:
 <span class="c1"># WSL Ubuntu</span>
 <span class="c1"># alias subl=&#39;/mnt/c/Program\ Files/Sublime\ Text\ 3/subl.exe&#39;</span>
 <span class="c1"># export PATH=$HOME/bin:/usr/local/bin:$PATH</span>
