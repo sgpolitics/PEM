@@ -1556,17 +1556,21 @@ details[open] > blockquote {
 
 <style type="text/css">
 /* 위로 가기, 아래로 가기 */
+a.top, a.bottom {
+    display: none;
+}
 @media only screen and ( min-width: 768px ) {
     a.top, a.bottom {
       position: fixed;
-      left: 20%;
-      text-align: right;
-      text-indent: -2em;
-      margin-top: 2%;
-      top: 75%;
+      left: 10%;
+      text-align: center;
+      bottom: 2%;
       font-size: 2em;
-      display: none;
+      opacity: 0.8;
       text-decoration: none !important;
+    }
+    a.top:hover, a.top:active, a.bottom:hover, a.bottom:active {
+        opacity: 1;
     }
 }
 </style>
@@ -1616,29 +1620,31 @@ $(document).ready(function(){
 
 <script>
 // 위로 가기, 아래로 가기
-$( document ).ready( function() {
-    var fade = $(window).height(); // 버튼 페이드할 높이 설정
-    $( window ).scroll( function() {
-      if ( $( this ).scrollTop() > fade ) {
-        $( '.top' ).fadeIn();
-      } else {
-        $( '.top' ).fadeOut();
-      }
+if ( matchMedia("screen and ( min-width: 768px )").matches ) {
+    $( document ).ready( function() {
+        var fade = $(window).height(); // 버튼 페이드할 높이 설정
+        $( window ).scroll( function() {
+          if ( $( this ).scrollTop() > fade ) {
+            $( '.top' ).fadeIn();
+          } else {
+            $( '.top' ).fadeOut();
+          }
+        } );
+        $( window ).scroll( function() {
+          if ( $( this ).scrollTop() > fade ) {
+            $( '.bottom' ).fadeOut();
+          } else {
+            $( '.bottom' ).fadeIn();
+          }
+        } );
+        $( '.top' ).click( function() {
+          $( 'html, body' ).animate( { scrollTop : 0 }, 1000 );
+          return false;
+        } );
+        $( '.bottom' ).click( function() {
+          $( 'html, body' ).animate( { scrollTop : $(hash).offset().top }, 1000 );
+          return false;
+        } );
     } );
-    $( window ).scroll( function() {
-      if ( $( this ).scrollTop() > fade ) {
-        $( '.bottom' ).fadeOut();
-      } else {
-        $( '.bottom' ).fadeIn();
-      }
-    } );
-    $( '.top' ).click( function() {
-      $( 'html, body' ).animate( { scrollTop : 0 }, 1000 );
-      return false;
-    } );
-    $( '.bottom' ).click( function() {
-      $( 'html, body' ).animate( { scrollTop : $(hash).offset().top }, 1000 );
-      return false;
-    } );
-} );
+}
 </script></article></body></html>
