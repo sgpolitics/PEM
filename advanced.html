@@ -1108,7 +1108,24 @@ body .markdown-body
 <h3 id="배색">배색<a class="headerlink" href="#배색" title="Permanent link"></a></h3>
 <ul>
 <li>Terminus는 200여개의 번들 배색을 제공합니다. <kbd>ctrl</kbd>/<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>를 눌러 <code>Terminus Utilities: Select Theme</code>를 선택해서 마음에 드는 배색을 찾아보세요.
-    <img alt="themes" src="./images/themes.gif" /></li>
+    <img alt="themes" src="./images/themes.gif" /><ul>
+<li>macOS 사용자의 경우, Terminus 설정을 수정해야 배색이 정상적으로 출력됩니다.<ol>
+<li><kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>를 눌러 <code>Preferences: Terminus Settings</code>를 선택하면, 배색 및 폰트 설정 파일을 수정할 수 있는 창이 열릴 것입니다.</li>
+<li>다음의 코드를 복사하여 새로 열린 창의 오른쪽 탭에 붙여넣고 저장합니다:
+<details>
+<summary>[View code]</summary>
+<div class="codehilite"><pre><span class="p">{</span> <span class="cm">/* the outermost curly brackets will be already in your settings file */</span>
+    <span class="c1">// 256색 활성화</span>
+    <span class="s2">&quot;256color&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;unix_term&quot;</span><span class="o">:</span> <span class="s2">&quot;xterm-256color&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span> <span class="cm">/* the outermost curly brackets will be already in your settings file */</span>
+</pre></div>
+</details></li>
+</ol>
+</li>
+</ul>
+</li>
 <li>Terminus의 번들 배색이 불만족스럽다면, 직접 색상을 조정하는 것도 가능합니다. <kbd>ctrl</kbd>/<kbd>command</kbd>+<kbd>shift</kbd>+<kbd>p</kbd>를 눌러 <code>Preferences: Terminus Settings</code>를 선택하면, 배색 및 폰트 설정 파일을 수정할 수 있는 창이 열릴 것입니다. 다음의 코드를 참조하여 오른쪽 탭의 내용을 적절히 수정하세요:
 <details>
     <summary>[View code]</summary>
